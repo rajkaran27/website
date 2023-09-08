@@ -11,9 +11,9 @@ export default function Navbar() {
                 </a>
 
                 <div className="flex space-x-4">
-                    <BsGithub style={{ fontSize: '2rem',color:'white' }} />
-                    <AiFillLinkedin style={{ fontSize: '2rem',color:'white'  }} />
-                    <AiOutlineInstagram style={{ fontSize: '2rem' ,color:'white' }} />       
+                    <a href="https://github.com/rajkaran27"><BsGithub style={{ fontSize: '2rem',color:'white' }} /></a>
+                    <a href="https://www.linkedin.com/in/rajkaran-muralikaran-49b7141b0/"><AiFillLinkedin style={{ fontSize: '2rem',color:'white'  }} /></a>
+                    <a href=""><AiOutlineInstagram style={{ fontSize: '2rem' ,color:'white' }} /></a>       
                 </div>
             </div>
         </nav>

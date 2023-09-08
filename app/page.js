@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Navbar from './components/navbar.js'
 import ProjectBox from './components/projectBox.js'
+import { FaJava, FaReact } from 'react-icons/fa';
 
 
 export default function Home() {
@@ -25,17 +26,37 @@ export default function Home() {
               </svg>
             </div>
           </div>
-          {/* <div className="border-b border-black"></div> */}
         </div>
-
-        <div id='projects'>
-          <h1 className='text-4xl font-extrabold dark:text-white text-center'>Projects</h1>
-          <div className="grid grid-cols-2 gap-4">
+        <div id='about'>
+          <h1 className='text-4xl font-extrabold dark:text-white text-center'>About me</h1>
+          <div className="grid grid-cols-2 gap-4 mt-6">
             <div>
-              <ProjectBox title="Java" desc="lorum ipsum" />
+            <Image
+              src="/assets/me.jpg"
+              alt="Vercel Logo"
+              width={500}
+              height={500}
+            />            
             </div>
             <div>
-              <ProjectBox title="React" desc="lorum ipsum" />
+              <h3>Myself</h3>
+            </div>
+          </div>
+        </div>
+        <div id='projects'>
+          <h1 className='text-4xl font-extrabold dark:text-white text-center'>Projects</h1>
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <div>
+              <ProjectBox title="Java" desc="lorum ipsum" icon1={<FaJava />} iconSize="32px"
+                iconColor="red" img="/assets/java.png"/>
+            </div>
+            <div>
+              <ProjectBox
+                title="Java"
+                desc="lorum ipsum"
+                icons={[<FaJava />, <FaReact />]}
+                iconStyles={[{ fontSize: '32px', color: 'red' }, { fontSize: '28px', color: 'green' }]}
+              />
             </div>
           </div>
         </div>
