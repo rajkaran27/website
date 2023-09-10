@@ -1,11 +1,18 @@
 import Image from 'next/image'
+
 import Navbar from './components/navbar.js'
 import ProjectBox from './components/projectBox.js'
-import { FaJava, FaReact } from 'react-icons/fa';
+import SkillsBox from './components/skills.js'
 
+import * as bsIcons from 'react-icons/bs';
+import * as aiIcons from 'react-icons/ai';
+import * as faIcons from 'react-icons/fa';
+import * as riIcons from 'react-icons/ri';
 
 export default function Home() {
+
   return (
+
     <>
       <header>
         <Navbar />
@@ -31,36 +38,41 @@ export default function Home() {
           <h1 className='text-4xl font-extrabold dark:text-white text-center'>About me</h1>
           <div className="grid grid-cols-2 gap-4 mt-6">
             <div>
-            <Image
-              src="/assets/me.jpg"
-              alt="Vercel Logo"
-              width={500}
-              height={500}
-            />            
+              <Image
+                src="/assets/me.jpg"
+                alt="Vercel Logo"
+                width={500}
+                height={500}
+              />
             </div>
             <div>
               <h3>Myself</h3>
             </div>
           </div>
         </div>
+        <div id="skills">
+          <h1 className='text-4xl font-extrabold dark:text-white text-center'>Skills</h1>
+          <SkillsBox/>
+        </div>
         <div id='projects'>
           <h1 className='text-4xl font-extrabold dark:text-white text-center'>Projects</h1>
           <div className="grid grid-cols-2 gap-4 mt-6">
             <div>
-              <ProjectBox title="Java" desc="lorum ipsum" icon1={<FaJava />} iconSize="32px"
-                iconColor="red" img="/assets/java.png"/>
+              <ProjectBox title="Java" desc="A bookstore built with Java and JSP, with integrated Paypal payment system." icon1={<faIcons.FaJava />} iconSize="32px"
+                iconColor="red" icons={[<faIcons.FaJava/>]} iconStyles={[{fontSize: '32px',color: 'red'}]}/>
             </div>
             <div>
               <ProjectBox
-                title="Java"
-                desc="lorum ipsum"
-                icons={[<FaJava />, <FaReact />]}
-                iconStyles={[{ fontSize: '32px', color: 'red' }, { fontSize: '28px', color: 'green' }]}
+                title="React"
+                desc="A simple expenses tracking application built with React Native."
+                icons={[<faIcons.FaReact />]}
+                iconStyles={[{ fontSize: '32px', color: 'green' }]}
               />
             </div>
           </div>
         </div>
       </main>
+
     </>
   )
 }
