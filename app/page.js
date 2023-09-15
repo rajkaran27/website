@@ -19,16 +19,15 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <>
+    <div id='all'>
       <header>
         <Navbar />
       </header>
       <main className="flex flex-col items-center justify-center min-h-screen p-24">
-        <div className='box' style={boxStyle}>
+        {/* <div className='box' style={boxStyle}>
           <Intro />
-        </div>
+        </div> */}
         <div id='about' style={boxStyle}>
-          <h1 className='text-4xl font-extrabold dark:text-white text-center'>About me</h1>
           <AboutMe />
         </div>
         <div id="skills" style={boxStyle}>
@@ -37,7 +36,7 @@ export default function Home() {
         </div>
         <div id='projects' style={boxStyle}>
           <h1 className='text-4xl font-extrabold dark:text-white text-center'>Projects</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             {projectData.map((project, index) => (
               <div key={index}>
                 <ProjectBox {...project} />
@@ -46,6 +45,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   )
 }

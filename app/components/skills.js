@@ -8,6 +8,7 @@ export default function SkillsBox(props) {
   const mainTabStyle = {
     border:'1px solid black',
     borderRadius: "8px", 
+    backgroundColor:'white'
   };
 
   const cardStyles = {
@@ -25,13 +26,14 @@ export default function SkillsBox(props) {
         {props.skills.map((skill, index) => (
           <Tab
             key={index}
+            
             title={<Image
               src={skill.icon}
               alt="Language"
               width={30}
               height={30}
             />}
-             style={{ flexBasis: tabWidth }} 
+             style={{ flexBasis: tabWidth, backgroundColor: "black" }} 
             >
             <Card style={cardStyles}>
               <CardBody className="p-2">
