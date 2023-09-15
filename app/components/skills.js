@@ -1,49 +1,76 @@
-"use client"
+import * as React from 'react';
 
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 import Image from 'next/image'
 
-export default function SkillsBox(props) {
-  const mainTabStyle = {
-    border:'1px solid black',
-    borderRadius: "8px", 
-    backgroundColor:'white'
-  };
 
-  const cardStyles = {
-    border:'1px solid black',
-    color: "black", 
-    marginTop:'10px',
-    borderRadius:'8px'
-  };
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
 
-  const tabWidth = `${100 / props.skills.length}%`;
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`vertical-tabpanel-${index}`}
+            aria-labelledby={`vertical-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box sx={{ p: 3 }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
 
-  return (
-    <div className={`w-[300px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[200px] xl:h-[250px] 2xl:h-[300px]  mt-3`}>
-      <Tabs aria-label="skills" radius={"md"} variant={"bordered"} style={mainTabStyle}>
-        {props.skills.map((skill, index) => (
-          <Tab
-            key={index}
-            
-            title={<Image
-              src={skill.icon}
-              alt="Language"
-              width={30}
-              height={30}
-            />}
-             style={{ flexBasis: tabWidth, backgroundColor: "black" }} 
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+    return {
+        id: `vertical-tab-${index}`,
+        'aria-controls': `vertical-tabpanel-${index}`,
+    };
+}
+
+export default function VerticalTabs({ skills }) {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    return (
+        <Box
+            sx={{ flexGrow: 1, display: 'flex', height: 224 }}
+        >
+            <Tabs
+                orientation="vertical"
+                variant="scrollable"
+                value={value}
+                onChange={handleChange}
+                aria-label="Vertical tabs example"
+                sx={{ borderRight: 1, borderColor: 'divider' }}
             >
-            <Card style={cardStyles}>
-              <CardBody className="p-2">
-                <h4 class="text-2xl font-bold dark:text-black">{skill.head}</h4>
-                {skill.description}
-              </CardBody>
-            </Card>
-          </Tab>
-        ))}
-      </Tabs>
-    </div>
-  );
+                {skills.map((skill, index) => (
+                    <Tab label={<Image src={skill.icon} alt={skill.head} height={30} width={30}/>} {...a11yProps(index)} key={index} />
+                ))}
+            </Tabs>
+            {skills.map((skill, index) => (
+                <TabPanel value={value} index={index} key={index}>
+                    <h4 class="text-2xl font-bold dark:text-white">{skill.head}</h4>
+                    {skill.description}
+                </TabPanel>
+            ))}
+        </Box>
+    );
 }

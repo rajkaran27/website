@@ -28,7 +28,7 @@ export default function ProjectBox(props) {
       whileHover={{ scale: 1.02 }}
       className="flex"
     >
-      <Card className="max-w-[400px]" style={cardStyle}>
+      <Card className="max-w-[400px] sm:max-w-full md:max-w-[400px]" style={cardStyle}>
         <CardHeader className="flex justify-between gap-3 p-2">
             <div>
               <Image

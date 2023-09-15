@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import Intro from './intro';
+// import Intro from './intro';
+import TextAnimation from './nameAnimation.js';
 
 export default function AboutMe(props) {
   const handleDownloadCV = () => {
@@ -21,7 +22,7 @@ export default function AboutMe(props) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-6 justify-items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 mt-6 justify-items-center p-10">
       <div className="md:order-2 ">
         <Image
           src="/assets/me.jpg"
@@ -32,19 +33,18 @@ export default function AboutMe(props) {
       </div>
       <div className="md:order-1 p-3">
         <div>
-          {/* <Intro /> */}
+          <p>Hi, I am</p>
+          <TextAnimation/>
         </div>
         <div className="mt-3">
-          <p>My name is Rajkaran and I am a student in Singapore Polytechnic.
-            I am currently pursuing my Diploma in Information Technology, and I am in the second year of my studies.
-            I love learning new technologies. Apart from that, I love to keep myself fit and </p>
+          <p>A Year 2 Information Technology Student in Singapore Polytechnic.</p>
         </div>
         <div className="mt-3">
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
             onClick={handleDownloadCV}
           >
-            Resume
+            My Résumé
           </button>
         </div>
       </div>
