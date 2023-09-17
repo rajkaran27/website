@@ -25,10 +25,11 @@ export default function AboutMe(props) {
     <div className="grid grid-cols-1 md:grid-cols-2 mt-6 justify-items-center p-10">
       <div className="md:order-2 ">
         <Image
-          src="/assets/me.jpg"
-          alt="Vercel Logo"
-          width={500}
-          height={500}
+        src="/assets/images/me.png"
+        alt="Picture of the author"
+        width={500}
+        height={500}
+        
         />
       </div>
       <div className="md:order-1 p-3">
@@ -41,7 +42,8 @@ export default function AboutMe(props) {
         </div>
         <div className="mt-3">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          style={{backgroundColor:"#3500d3"}}
+            className=" text-white px-4 py-2 rounded-md"
             onClick={handleDownloadCV}
           >
             My Résumé

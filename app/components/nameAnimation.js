@@ -1,10 +1,17 @@
 "use client"
 
-import '../styles/name.css';
+
 import { useEffect, useState } from 'react';
 
 
 const TextAnimation = () => {
+
+    const h1Style={
+        color:'#3500d3',
+        fontSize:'5rem',
+        fontWeight:'bold',
+    }
+
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const [text, setText] = useState("Rajkaran");
     const [intervalId, setIntervalId] = useState(null);
@@ -50,7 +57,7 @@ const TextAnimation = () => {
     }, [intervalId]);
 
     return (
-        <h1 data-value="Rajkaran">
+        <h1 data-value="Rajkaran" style={h1Style}>
             {text}
         </h1>
     );

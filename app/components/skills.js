@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Image from 'next/image'
 
 
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -22,7 +23,9 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    <div>
+                        <Typography>{children}</Typography>
+                    </div>
                 </Box>
             )}
         </div>
@@ -42,7 +45,12 @@ function a11yProps(index) {
     };
 }
 
-export default function VerticalTabs({ skills }) {
+export default function SkillsBox({ skills }) {
+
+    const boxStyle = {
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+    }
+
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -51,23 +59,27 @@ export default function VerticalTabs({ skills }) {
 
     return (
         <Box
-            sx={{ flexGrow: 1, display: 'flex', height: 224 }}
+            sx={{ maxWidth: { xs: 320, sm: 800 },width: '100%' }}
+            style={boxStyle}
         >
             <Tabs
-                orientation="vertical"
+                indicatorColor='secondary'
                 variant="scrollable"
                 value={value}
                 onChange={handleChange}
-                aria-label="Vertical tabs example"
-                sx={{ borderRight: 1, borderColor: 'divider' }}
+                allowScrollButtonsMobile
+                sx={{
+                    borderRight: 1,
+                    borderColor: 'divider',
+                }}
             >
                 {skills.map((skill, index) => (
-                    <Tab label={<Image src={skill.icon} alt={skill.head} height={30} width={30}/>} {...a11yProps(index)} key={index} />
+                    <Tab label={<Image src={skill.icon} alt={skill.head} height={40} width={40} />} {...a11yProps(index)} key={index} />
                 ))}
             </Tabs>
             {skills.map((skill, index) => (
                 <TabPanel value={value} index={index} key={index}>
-                    <h4 class="text-2xl font-bold dark:text-white">{skill.head}</h4>
+                    <h4 className="text-2xl font-bold dark:text-dark">{skill.head}</h4>
                     {skill.description}
                 </TabPanel>
             ))}
