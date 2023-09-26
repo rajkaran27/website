@@ -5,13 +5,15 @@ import ProjectBox from './components/projectBox.js'
 import SkillsBox from './components/skills.js'
 import AboutMe from './components/aboutMe.js';
 import Intro from './components/intro.js';
-
+import MySkills from './components/skillIcons.js';
 
 import content from './content/content.js';
 const { skillsData, projectData } = content;
-import { motion, useScroll } from "framer-motion";
+
+
 
 export default function Home() {
+
   return (
     <div id='all'>
       <header>
@@ -19,17 +21,20 @@ export default function Home() {
       </header>
       <main className="flex flex-col items-center justify-center min-h-screen p-20">
         <div id='about' className='my-5'>
+
           <AboutMe />
+
         </div>
         <div id="skills" className='my-5'>
-          
-              <h1 className='text-4xl font-extrabold dark:text-dark text-center'>Skills</h1>
-            
-              <SkillsBox skills={skillsData} />
-            
-          
+
+          <h1 className='text-4xl font-extrabold dark:text-dark text-center'>Skills</h1>
+          {/* 
+          <SkillsBox skills={skillsData} /> */}
+          <MySkills skills={skillsData} />
+
         </div>
         <div id='projects' className='my-5'>
+
           <h1 className='text-4xl font-extrabold dark:text-dark text-center'>Projects</h1>
           <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-4 mt-6">
             {projectData.map((project, index) => (
@@ -38,6 +43,8 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+
         </div>
       </main>
     </div>

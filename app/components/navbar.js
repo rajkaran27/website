@@ -27,11 +27,7 @@ export default function Navbar() {
                     >
                         <a href="https://www.linkedin.com/in/rajkaran-muralikaran-49b7141b0/"><AiFillLinkedin style={{ fontSize: '2.5rem', color: 'white' }} /></a>
                     </motion.div>
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <a href=""><AiOutlineInstagram style={{ fontSize: '2.5rem', color: 'white' }} /></a>
-                    </motion.div>
+                    
                 </div>
             </div>
         </nav>
