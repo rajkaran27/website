@@ -10,12 +10,11 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="bg-white border-gray-200 dark:bg-gray-900 ">
+        <nav style={{backgroundColor:"#30332E"}}>
             <div className="flex justify-between items-center mx-auto max-w-screen-xl p-4">
                 <a className="flex items-center">
                     <Intro />
                 </a>
-
                 <div className="flex space-x-4">
                     <motion.div
                         whileHover={{ scale: 1.1 }}

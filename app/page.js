@@ -28,8 +28,6 @@ export default function Home() {
         <div id="skills" className='my-5'>
 
           <h1 className='text-4xl font-extrabold dark:text-dark text-center'>Skills</h1>
-          {/* 
-          <SkillsBox skills={skillsData} /> */}
           <MySkills skills={skillsData} />
 
         </div>

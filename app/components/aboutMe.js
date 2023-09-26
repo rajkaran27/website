@@ -33,10 +33,7 @@ export default function AboutMe(props) {
 
         />
       </div>
-      <motion.div
-        animate={{ x: 50 }}
-        transition={{ ease: "easeOut", duration: 1 }}
-      >
+      
         <div className="md:order-1 p-3">
           <div>
             <p>Hi, I am</p>
@@ -60,7 +57,6 @@ export default function AboutMe(props) {
             </button>
           </div>
         </div>
-      </motion.div>
     </div>
   );
 }
