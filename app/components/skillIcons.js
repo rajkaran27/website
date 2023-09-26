@@ -15,7 +15,7 @@ export default function MySkills({ skills }) {
     return (
         <div className='flex space-x-4'>
             {skills.map((skill, index) => (
-                <Tooltip title={skill.head} index={index}>
+                <Tooltip title={skill.head} key={index}>
                     <span style={spanStyle}>
                         <img src={skill.icon} alt={skill.head} className="h-12 w-12" />
                     </span>
