@@ -1,7 +1,20 @@
 import Image from 'next/image'
-// import Intro from './intro';
 import TextAnimation from './nameAnimation.js';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
+
+const variants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5, // Adjust the duration as needed
+    },
+  },
+};
 
 export default function AboutMe(props) {
   const handleDownloadCV = () => {
@@ -24,39 +37,35 @@ export default function AboutMe(props) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 mt-6 justify-items-center p-10">
-      <div className="md:order-2 ">
-        <Image
+      <div className="md:order-2">
+        {/* <Image
           src="/assets/images/me.png"
           alt="Picture of the author"
           width={500}
           height={500}
-
-        />
+        /> */}
       </div>
-      
-        <div className="md:order-1 p-3">
-          <div>
-            <p>Hi, I am</p>
-            <motion.div whileHover={{
-              scale: 1.1,
-              transition: { duration: 1 },
-            }}>
-              <TextAnimation />
-            </motion.div>
-          </div>
-          <div className="mt-3">
-            <p>A Year 2 Information Technology Student in Singapore Polytechnic.</p>
-          </div>
-          <div className="mt-3">
-            <button
-              style={{ backgroundColor: "#3500d3" }}
-              className=" text-white px-4 py-2 rounded-md"
-              onClick={handleDownloadCV}
-            >
-              My Résumé
-            </button>
-          </div>
-        </div>
+
+      <div className="md:order-1 p-3">
+        <motion.div variants={variants} initial="initial" animate="animate">
+          <p className='text-lg'>Hi, I am</p>
+        </motion.div>
+        <motion.div variants={variants} initial="initial" animate="animate" transition={{ delay: 0.2 }}>
+          <TextAnimation />
+        </motion.div>
+        <motion.div variants={variants} initial="initial" animate="animate" transition={{ delay: 0.4 }}>
+          <p className='text-lg'>A Year 2 Information Technology Student in Singapore Polytechnic.</p>
+        </motion.div>
+        <motion.div variants={variants} initial="initial" animate="animate" transition={{ delay: 0.6 }}>
+          <button
+            style={{ backgroundColor: "#3500d3" }}
+            className="text-white px-4 py-2 rounded-md text-lg"
+            onClick={handleDownloadCV}
+          >
+            My Résumé
+          </button>
+        </motion.div>
+      </div>
     </div>
   );
 }

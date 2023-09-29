@@ -8,7 +8,7 @@ import Image from 'next/image'
 export default function ProjectBox(props) {
 
   const cardStyle = {
-    backgroundColor: '#010400',
+    backgroundColor: '#30332E',
     padding: '10px',
     borderRadius: '10px',
     color: 'white',
@@ -20,27 +20,37 @@ export default function ProjectBox(props) {
     borderRadius: '10px',
   }
 
+  const divVariants = {
+    hover: {
+      boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)", // White shadow
+      scale: 1.02,
+    },
+  };
+
   const images = Array.isArray(props.images) ? props.images : [];
   const languages = Array.isArray(props.languages) ? props.languages : [];
 
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      variants={divVariants}
+      whileHover="hover"
       className="flex"
+      style={cardStyle}
     >
-      <Card className="max-w-[400px] sm:max-w-full md:max-w-[400px]" style={cardStyle}>
+      <Card className="max-w-[400px] sm:max-w-full md:max-w-[400px]" >
         <CardHeader className="flex justify-between gap-3 p-2">
-            <div>
-              <Image
-                src="/assets/icons/folder.svg"
-                alt="Language"
-                width={50}
-                height={50}
-                color="white"
-                />
-                
-            </div>
-            <div className="pr-2">
+          <div>
+            <Image
+              src="/assets/icons/folder.svg"
+              alt="Language"
+              width={50}
+              height={50}
+              color="white"
+            />
+
+          </div>
+          <div className="pr-2">
+            <motion.div whileHover={{ opacity: 0.8 }}>
               <a href={props.link} >
                 <Image
                   src="/assets/icons/github.svg"
@@ -49,20 +59,19 @@ export default function ProjectBox(props) {
                   height={50}
                 />
               </a>
-            </div>
-          
+            </motion.div>
+
+          </div>
+
         </CardHeader>
-        {/* <Divider /> */}
         <CardBody className="p-2">
-        <h2 className="text-2xl font-bold dark:text-white text-start">{props.title}</h2>
+          <h2 className="text-2xl font-bold dark:text-white text-start">{props.title}</h2>
         </CardBody>
-        {/* <Divider /> */}
         <CardBody className="p-2">
           <p>{props.desc}</p>
         </CardBody>
-        {/* <Divider /> */}
         <CardFooter className="p-2">
-        <div className="flex justify-center space-x-4 ">
+          <div className="flex justify-center space-x-4 ">
             {languages.map((lang, index) => (
               <div className="flex items-center p-1" key={index} style={langBox}>
                 <p className="ml-1">{lang}</p>
@@ -71,6 +80,7 @@ export default function ProjectBox(props) {
                 >
                   {images[index] && (
                     <Image
+                      className="ml-1"
                       src={images[index]}
                       alt="Language"
                       width={25}
