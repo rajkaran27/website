@@ -1,8 +1,16 @@
 import Image from 'next/image'
 import TextAnimation from './nameAnimation.js';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-const variants = {
+const containerVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2, // Adjust the delay between each child element
+    },
+  },
+};
+
+const childVariants = {
   initial: {
     opacity: 0,
     y: 20,
@@ -18,20 +26,15 @@ const variants = {
 
 export default function AboutMe(props) {
   const handleDownloadCV = () => {
-    // Replace 'your-cv-filename.pdf' with the actual name of your CV file
     const cvFileName = 'Rajkaran Muralikaran1.pdf';
 
-    // Create a temporary anchor element
     const a = document.createElement('a');
 
-    // Set the anchor's attributes
     a.href = `/assets/resume/${cvFileName}`;
     a.download = cvFileName;
 
-    // Trigger a click event on the anchor to initiate the download
     a.click();
 
-    // Clean up the temporary anchor
     window.URL.revokeObjectURL(a.href);
   };
 
@@ -46,17 +49,22 @@ export default function AboutMe(props) {
         /> */}
       </div>
 
-      <div className="md:order-1 p-3">
-        <motion.div variants={variants} initial="initial" animate="animate">
-          <p className='text-lg'>Hi, I am</p>
+      <motion.div
+        className="md:order-1 p-3"
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <motion.div variants={childVariants}>
+          <p className='text-lg p-1'>Hi, I am</p>
         </motion.div>
-        <motion.div variants={variants} initial="initial" animate="animate" transition={{ delay: 0.2 }}>
+        <motion.div variants={childVariants}>
           <TextAnimation />
         </motion.div>
-        <motion.div variants={variants} initial="initial" animate="animate" transition={{ delay: 0.4 }}>
-          <p className='text-lg'>A Year 2 Information Technology Student in Singapore Polytechnic.</p>
+        <motion.div variants={childVariants}>
+          <p className='text-lg p-1'>A Year 2 Information Technology Student in Singapore Polytechnic.</p>
         </motion.div>
-        <motion.div variants={variants} initial="initial" animate="animate" transition={{ delay: 0.6 }}>
+        <motion.div variants={childVariants} className='py-2'>
           <button
             style={{ backgroundColor: "#3500d3" }}
             className="text-white px-4 py-2 rounded-md text-lg"
@@ -65,7 +73,7 @@ export default function AboutMe(props) {
             My Résumé
           </button>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

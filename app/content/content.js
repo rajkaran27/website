@@ -1,38 +1,39 @@
 const skillsData = [
     {
         icon: "/assets/icons/nodejs.svg",
-        description: "",
-        head:"NodeJS"
+        head:"NodeJS",
+        time:0.2
     },
     {
         icon: "/assets/icons/java.svg",
-        description: "I chose the Software Engineering specialisation, which focuses on Java. I have experience with the basics of Javam JSP, and Spring Boot. I created a bookstore with Java and JSP, with an integrated Paypal payment system.",
-        head:"Java"
+        head:"Java",
+        time:0.4
     },
     {
         icon: "/assets/icons/python.svg",
-        description: "I took Python as part of my Programming for Data Science elective. I used Pandas and Numpy to perform data analysis on .",
-        head:"Python"
+        head:"Python",
+        time:0.6
     },
     {
         icon: "/assets/icons/react.svg",
         description: "",
-        head:"React"
+        head:"React",
+        time:0.8
     },
     {
         icon: "/assets/icons/tailwind.svg",
-        description: "I learnt Tailwind CSS on my own to enhance the aesthetics on my websites.",
-        head:"Tailwind"
+        head:"Tailwind",
+        time:1
     },
     {
         icon: "/assets/icons/mysql.svg",
-        description: "I am proficient in SQL and have experience with MySQL workbench. ",
-        head:"MySQL"
+        head:"MySQL",
+        time:1.2
     },
     {
         icon: "/assets/icons/aws.svg",
-        description: "I learnt how to deploy a website on AWS using EC2, RDS, and S3. This was done as a part of my CA2 assignnment for my Enterprise Systems Developemnt (ESDE) moduule.",
-        head:"Amazon Web Services"
+        head:"Amazon Web Services",
+        time:1.4
     },
 ];
 

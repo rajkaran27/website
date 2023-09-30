@@ -21,17 +21,9 @@ export default function Home() {
         <Navbar />
       </header>
       <main className="flex flex-col items-center justify-center min-h-screen p-20">
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }} // Adjust the duration as needed
-        > */}
-          <div id='about' className='my-5'>
-
+          <div id='about' className='my-5 p-2'>
             <AboutMe />
-
           </div>
-        {/* </motion.div> */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
