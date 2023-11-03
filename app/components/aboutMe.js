@@ -26,7 +26,7 @@ const childVariants = {
 
 export default function AboutMe(props) {
   const handleDownloadCV = () => {
-    const cvFileName = 'Rajkaran Muralikaran1.pdf';
+    const cvFileName = 'Rajkaran Resume.pdf';
 
     const a = document.createElement('a');
 

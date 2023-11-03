@@ -39,6 +39,13 @@ const skillsData = [
 
 const projectData = [
     {
+        title:"Threads Clone",
+        desc:"A clone of the Threads app built using NextJS, TailwindCSS, MongoDB and Clerk",
+        images:["/assets/icons/react.svg","/assets/icons/tailwind.svg","/assets/icons/mongodb.svg"],
+        languages:["React","Tailwind","MongoDB"],
+        link:"https://github.com/rajkaran27/Threads-Clone"
+    },
+    {
         title: "Kitty Reads",
         desc: "A bookstore built with Java and JSP, with an integrated Paypal payment system.",
         images: ["/assets/icons/java.svg", "/assets/icons/mysql.svg"], // Use an array of image URLs
@@ -72,7 +79,8 @@ const projectData = [
         images:["/assets/icons/react.svg","/assets/icons/tailwind.svg"],
         languages:["React","Tailwind"],
         link:"https://github.com/rajkaran27/website"
-    }
+    },
+
 ];
 
 export default { skillsData, projectData };
