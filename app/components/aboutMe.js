@@ -62,7 +62,7 @@ export default function AboutMe(props) {
           <TextAnimation />
         </motion.div>
         <motion.div variants={childVariants}>
-          <p className='text-lg p-1'>A Year 2 Information Technology Student in Singapore Polytechnic.</p>
+          <p className='text-lg p-1'>A Final Year Information Technology Student in Singapore Polytechnic.</p>
         </motion.div>
         <motion.div variants={childVariants} className='py-2'>
           <button

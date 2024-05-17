@@ -11,11 +11,13 @@ import content from './content/content.js';
 const { skillsData, projectData } = content;
 
 import { motion } from 'framer-motion'
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
 
   return (
     <div id='all'>
+      <Analytics/>
       <header>
         <Navbar />
       </header>
